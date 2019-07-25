@@ -5,3 +5,4 @@ Tarea 1/*.exe
 /bin/
 .classpath
 .project
+.settings/

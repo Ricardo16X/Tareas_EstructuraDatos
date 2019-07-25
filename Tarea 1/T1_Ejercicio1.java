@@ -3,7 +3,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Scanner;
 
-public class Ejercicio1 {
+public class T1_Ejercicio1 {
 	public static void main(String[] args) {
 		// Variables
 		String fechaPartes[];
