@@ -6,3 +6,9 @@ Tarea 1/*.exe
 .classpath
 .project
 .settings/
+graphviz-0.11.1/
+Laboratorio/graphviz/
+.vscode/
+*.rar
+graphviz/
+*.jpg
