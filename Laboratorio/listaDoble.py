@@ -131,7 +131,7 @@ class listaDoble:
 
         archivoNuevo = open("listaDoble.dot","w")
         archivoNuevo.write("digraph G{\n")
-        archivoNuevo.write("rankdir = \"LR\"")
+        archivoNuevo.write("rankdir = \"LR\"\n")
         archivoNuevo.write("node [shape = square];\n")
         temporal = self.ancla
         cadena = ""

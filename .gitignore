@@ -12,3 +12,4 @@ Laboratorio/graphviz/
 *.rar
 graphviz/
 *.jpg
+/Laboratorio/__pycache__/*
