@@ -1,0 +1,108 @@
+public class tarea {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Lista listaOriginal = new Lista();
+		listaOriginal.agregar(new nodoLista(1, 10, 200, "prov1"));
+		listaOriginal.agregar(new nodoLista(2, 1000, 200, "prov2"));
+		listaOriginal.agregar(new nodoLista(789, 20, 200, "prov3"));
+		listaOriginal.agregar(new nodoLista(32782, 900, 200, "prov4"));
+		listaOriginal.agregar(new nodoLista(21, 110, 200, "prov5"));
+		listaOriginal.agregar(new nodoLista(101, 1000, 200, "prov6"));
+
+		Lista listaCopia = new Lista();
+
+		listaOriginal.copiar(listaOriginal, listaCopia);
+		listaOriginal.ver();
+		listaCopia.ver();
+
+		listaOriginal.eliminar();
+		listaCopia.eliminar();
+
+		listaOriginal.ver();
+		listaCopia.ver();
+	}
+
+	static class Lista {
+		nodoLista primero;
+
+		public Lista() {
+			// TODO Auto-generated constructor stub
+			nodoLista listita = new nodoLista();
+		}
+
+		/* Inciso A: Declaración de Estructura */
+		static class nodoLista {
+			int codProducto;
+			int stock;
+			int min_stock;
+			String codProveedor;
+			nodoLista siguiente = null;
+
+			public nodoLista() {
+				// TODO Auto-generated constructor stub
+			}
+
+			public nodoLista(int _codProduct, int _stk, int _minstk, String _codProv) {
+				// TODO Auto-generated constructor stub
+				codProducto = _codProduct;
+				stock = _stk;
+				min_stock = _minstk;
+				codProveedor = _codProv;
+			}
+		}
+
+		public static void agregar(nodoLista nuevoNodo) {
+			nodoLista tempLista = primero;
+			if (tempLista == null) {
+				tempLista = nuevoNodo;
+			} else {
+				while (tempLista.siguiente != null) {
+					tempLista = tempLista.siguiente;
+				}
+				tempLista.siguiente = nuevoNodo;
+			}
+		}
+
+		public static void copiar(Lista original, Lista destino) {
+			nodoLista tempLista = original.primero;
+			/* Copiar los nodolista siempre y cuando stock < stock_min */
+			while (tempLista != null) {
+				if (tempLista.stock < tempLista.min_stock) {
+					destino.agregar(tempLista);
+				}
+				tempLista = tempLista.siguiente;
+			}
+		}
+
+		public static void eliminar() {
+			nodoLista temp = primero;
+			nodoLista anterior;
+			while (temp != null) {
+				// Eliminar solo si el codigo de producto es > 100
+				if (temp.codProducto > 100) {
+					if (temp == primero) {
+						primero = temp.siguiente;
+						temp.siguiente = null;
+					} else {
+						anterior.siguiente = temp.siguiente;
+						temp.siguiente = null;
+					}
+				}
+				anterior = temp;
+				temp = temp.siguiente;
+			}
+		}
+
+		public static void ver() {
+			nodoLista temp = primero;
+			while (temp != null) {
+				System.out.println("---------------------------------");
+				System.out.println("Cod. Producto = " + temp.codProducto);
+				System.out.println("Stock = " + temp.stock);
+				System.out.println("Min Stock = " + temp.min_stock);
+				System.out.println("Cod. Proveedor = " + temp.codProveedor);
+			}
+		}
+	}
+}
