@@ -24,7 +24,6 @@ struct horarios
     horarios *siguiente;
 } * primerHorario;
 
-
 bool diaExiste(std::string dia, int *numDia);
 bool cabeceraExiste(int dia);
 cabecera *obtenerCabecera(int numDia);
@@ -32,14 +31,14 @@ void insertarCabecera(cabecera *nuevo);
 void insertar(cabecera *temp, std::string accion);
 void visualizar(cabecera *mirar);
 
-
 int main(int argc, char const *argv[])
 {
     /*CREACION DE CABECERAS Y ACTIVIDADES*/
     cabecera *nuevo = 0;
+    horarios *nuevoH = 0;
 
     int op = 0;
-    std::string dia, accion;
+    std::string dia, accion, hora;
     int numDia = 0;
     while (op != 3)
     {
@@ -58,6 +57,10 @@ int main(int argc, char const *argv[])
             std::cout << "INGRESE LA ACTIVIDAD" << std::endl;
             fflush(stdin);
             std::getline(std::cin, accion, '\n');
+            std::cout << "INGRESE LA HORA" << std::endl;
+            fflush(stdin);
+            std::getline(std::cin, hora, '\n');
+
             if (diaExiste(dia, &numDia))
             {
                 if (!cabeceraExiste(numDia))
@@ -258,7 +261,7 @@ void visualizar(cabecera *mirar)
     std::cout << "ACTIVIDADES DEL DIA " << mirar->dia << std::endl;
     while (inicio != NULL)
     {
-        std::cout << inicio->accion << std::endl;
+        std::cout << "\t" << inicio->accion << std::endl;
         inicio = inicio->siguiente;
     }
 }
