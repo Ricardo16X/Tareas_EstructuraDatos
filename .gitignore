@@ -13,4 +13,5 @@ Laboratorio/graphviz/
 graphviz/
 *.jpg
 /Laboratorio/__pycache__/*
-/Laboratorio/Tarea_1/__pycache__/
+/Laboratorio/Tarea_1/__pycache__/*
+/Laboratorio/Tarea_4/*.exe
